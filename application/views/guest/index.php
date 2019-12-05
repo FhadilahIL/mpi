@@ -30,13 +30,15 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
-            <?php foreach ($berita_carousel as $carousel) { ?>
+            
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
+                    <?php foreach ($berita_carousel as $carousel) { ?>
+                    <div class="carousel-item">
                         <a href="<?= base_url('guest/detail_berita/') . $carousel->id_berita ?>"><img class="d-block w-100 carousel-berita" src="<?= base_url('assets/img/berita/') . $carousel->nama_gambar_berita ?>" alt="First slide"></a>
                     </div>
+                    <?php } ?>
                 </div>
-            <?php } ?>
+            
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -72,6 +74,13 @@
     <script src="<?= base_url('assets/js/jquery-3.2.1.slim.min.js'); ?>"></script>
     <script src="<?= base_url('assets/js/popper.min.js'); ?>"></script>
     <script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
+    <script>
+        $('.carousel-item:first').addClass("active");
+        let a = $('.carousel')
+        a.carousel({
+            interval: 3000
+        });
+    </script>
 </body>
 
 </html>
