@@ -408,6 +408,8 @@ class Admin extends CI_Controller
 
         if ($this->User->update_data($data, $nik)) {
             $this->session->set_flashdata('pesan_berhasil', 'Data Berhasil Di Ubah');
+             $this->load->helper('updatesession');
+            updateSession(['nama' => $data['nama']]);
             redirect(base_url('admin/data_pribadi/') . $nik);
         } else {
             $this->session->set_flashdata('pesan_gagal', 'Data Harus Dilengkapi. Silahkan Isi Data Ulang');
@@ -465,6 +467,7 @@ class Admin extends CI_Controller
 
     function edit_pegawai()
     {
+       
         $nik = $this->input->post('nik');
         $data = [
             'nama'          => $this->input->post('nama'),
@@ -478,6 +481,7 @@ class Admin extends CI_Controller
         ];
         if ($this->User->update_data($data, $nik)) {
             $this->session->set_flashdata('pesan_berhasil', 'Berhasil Update Data');
+            
             redirect(base_url('admin/data_pegawai'));
         } else {
             $this->session->set_flashdata('pesan_gagal', 'Gagal Update Data. NIK Tidak Ada');
