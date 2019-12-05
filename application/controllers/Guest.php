@@ -25,7 +25,7 @@ class Guest extends CI_Controller
         $this->load->view('guest/login');
     }
 
-    function detail_berita($id_berita)
+    function detail_berita()
     {
         $id_berita = $this->uri->segment(3);
         $cari = $this->News->cari($id_berita);

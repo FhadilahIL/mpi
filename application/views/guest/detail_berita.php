@@ -25,7 +25,7 @@
 
     <div class="container">
         <h1 class="judul-berita-guest"><?= $tampil_berita->judul_berita ?></h1>
-        <img class="gambar-berita-guest" src="<?= base_url('assets/img/berita/') . $tampil_berita->nama_gambar_berita ?>" alt="berita">
+        <img class="gambar-berita-guest" src="<?= base_url('assets/img/berita/') . $tampil_berita->nama_gambar ?>" alt="berita">
         <p class="mt-3">Posted by <?= $tampil_berita->nama ?></p>
         <p><?= date('D, d F Y', strtotime($tampil_berita->tanggal)) ?></p>
         <p class="isi-berita-guest"><?= $tampil_berita->isi_berita ?></p>

@@ -7,11 +7,12 @@ class Auth extends CI_Controller
     {
         parent::__construct();
         $this->load->model('User');
-        $this->load->helper('logUser');
+        
     }
 
     function cek_login()
     {
+        $this->load->helper('loguser');
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         $data = $this->User->cari_user($username);
